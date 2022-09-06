@@ -9,6 +9,11 @@ if(isset($_POST["save"])&& $_POST["save"]=="save")
     {
         $errornname= "Plese fill item name";
     }
+    $namecount=$obj->GetAllRecords("select * from tbl_item_mstr where status=1");
+    if($namecount>0)
+    {
+     $errornname="Item already Added"
+     }
     elseif(empty($_POST["price"]))
     {
     $eprice="Fill the price";
